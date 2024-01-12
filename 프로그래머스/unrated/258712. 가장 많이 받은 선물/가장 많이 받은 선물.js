@@ -4,14 +4,14 @@ function solution(friends, gifts) {
     let giftList = {}; // 누가 누구에게 주었는지를 담을 객체
     
     // 초기 값 세팅 (선물 주고받은 리스트, 선물지수, 답)
-    for(const name of friends){
-        answer[name] = 0
-        giftCount[name] = 0
-        giftList[name] = {}
-        for (const friend of friends) {
-          if(name !== friend){
-            giftList[name][friend] = 0
-          }
+    for(let i=0; i<friends.length; i++){
+        answer[friends[i]] = 0
+        giftCount[friends[i]] = 0
+        giftList[friends[i]] = {}
+        for(let j=0; j<friends.length; j++){
+            if(i !== j){
+                giftList[friends[i]][friends[j]] = 0
+            }
         }
     }
     
@@ -19,7 +19,7 @@ function solution(friends, gifts) {
         let [give,take] = gifts[i].split(' ')
         giftCount[give] = giftCount[give]+1 // 선물 준 갯수
         giftCount[take] = giftCount[take]-1 // 선물 받은 갯수
-        giftList[give][take] = giftList[give][take]+1 
+        giftList[give][take] = giftList[give][take]+1
     }
     
     for(const give in giftList){
