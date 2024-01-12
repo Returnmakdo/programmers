@@ -15,6 +15,7 @@ function solution(friends, gifts) {
         }
     }
     
+    
     for (let i=0; i<gifts.length; i++) {
         let [give,take] = gifts[i].split(' ')
         giftCount[give] = giftCount[give]+1 // 선물 준 갯수
@@ -33,6 +34,7 @@ function solution(friends, gifts) {
                 }
             } else{
                 // 서로 주고받은 경우가 있는 경우
+                console.log(giftList[give][take])
                 if(giftList[give][take] > giftList[give][take]){
                   answer[give] = answer[give]+1
                 }
